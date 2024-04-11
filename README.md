@@ -1,2 +1,2 @@
-# api-1sem-2024
-Repositório destinado ao grupo Byte Benders para desenvolvimento da API do segundo semestre de ADS.
+# Sobre o Projeto 🧩
+Consiste na criação de um Chatbot(Similar ao GPT) que busca auxiliar empresas na utlização de banco de dados, por meio de uma LLM que se especializa em transformar linguagem de alto nível em requisições na linguagem de programação SQL, que por meio de linguagem Java será executada no banco de dados da empresa e devolverá, em linguagem de alto nível, a resposta para a requisição feita pelo usuário.    
