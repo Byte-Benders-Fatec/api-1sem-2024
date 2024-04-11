@@ -8,3 +8,17 @@ Consiste na criação de um Chatbot(Similar ao GPT) que busca auxiliar empresas 
 | 02 | 05/05/2024 | Em breve |..... |
 | 03 | 26/05/2024 | Em breve |..... |
 | 04 | 16/06/2024 | Em breve |..... |
+
+
+## Backlog do Produto
+
+
+## Protótipo 
+Como parte dos requisitos da entrega da Sprint 1 foi criado um Protótipo do projeto para apresentação ao cliente. Segue em vídeo a demonstração do protótipo em funcionamento:
+
+
+## Tecnologias Utilizadas 
+As seguintes tecnologias foram utilizadas no Projeto:
+
+
+## Equipe 
