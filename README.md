@@ -11,12 +11,13 @@ Consiste na criação de um Chatbot(Similar ao GPT) que busca auxiliar empresas 
 
 
 ## Backlog do Produto
+### Sprint 1
 | Item | Prioridade | ID | User Stories |
 |------|------------|----|--------------|
-| Sprint 1 ||||
 | Backlog | 100 | 1 | Calendário de entregas de acordo com os desejos e requisitos do cliente. |
 | Protótipo | 95 | 2 | "Como cliente quero uma interface que mostre como irá funcionar o programa, para que eu possa saber como realizarei as pesquisas" |
-| Sprint 2 ||||
+
+### Sprint 2
 
 ## Protótipo 
 Como parte dos requisitos da entrega da Sprint 1 foi criado um Protótipo do projeto para apresentação ao cliente. Segue em vídeo a demonstração do protótipo em funcionamento:
