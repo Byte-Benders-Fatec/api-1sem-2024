@@ -26,8 +26,8 @@ As seguintes tecnologias foram utilizadas no Projeto:
 |------|--------|----------|
 | Caio | https://github.com/CaioOsorio |      [![Linkedin Badge](https://img.shields.io/badge/Linkedin-blue?style=flat-square&logo=Linkedin&logoColor=white)](https://www.linkedin.com/in/caio-osorio-a67224200)     |
 | Thiago | https://github.com/yrnThiago |     [![Linkedin Badge](https://img.shields.io/badge/Linkedin-blue?style=flat-square&logo=Linkedin&logoColor=white)](https://www.linkedin.com/in/thiago-ribeiro-690b4114b/)  |
-| Joniel | https://github.com/JonielOliveira | https://www.linkedin.com/in/jonielrodrigues |
-| Henrique | .....|........|
-| Lucas | https://github.com/LucasCassiano1 | https://www.linkedin.com/in/lucas-cassiano-pontes-02b4a6301?trk=contact-info |
-| Mariana | https://github.com/Marianatebecherani | https://www.linkedin.com/in/mariana-rebelo-tebecherani-3207a4214 |
-| Diego | https://github.com/Diegocastro5 | https://www.linkedin.com/in/diegocastro91/ |
+| Joniel | https://github.com/JonielOliveira |     [![Linkedin Badge](https://img.shields.io/badge/Linkedin-blue?style=flat-square&logo=Linkedin&logoColor=white)](https://www.linkedin.com/in/jonielrodrigues)  |
+| Henrique | .....||
+| Lucas | https://github.com/LucasCassiano1 |     [![Linkedin Badge](https://img.shields.io/badge/Linkedin-blue?style=flat-square&logo=Linkedin&logoColor=white)](https://www.linkedin.com/in/lucas-cassiano-pontes-02b4a6301?trk=contact-info)  |
+| Mariana | https://github.com/Marianatebecherani |     [![Linkedin Badge](https://img.shields.io/badge/Linkedin-blue?style=flat-square&logo=Linkedin&logoColor=white)](https://www.linkedin.com/in/mariana-rebelo-tebecherani-3207a4214)  |
+| Diego | https://github.com/Diegocastro5 |    [![Linkedin Badge](https://img.shields.io/badge/Linkedin-blue?style=flat-square&logo=Linkedin&logoColor=white)](https://www.linkedin.com/in/diegocastro91/)  |
