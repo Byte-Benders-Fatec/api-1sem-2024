@@ -24,7 +24,7 @@ As seguintes tecnologias foram utilizadas no Projeto:
 ## Equipe 
 | Nome | GitHub | LinkedIn |
 |------|--------|----------|
-| Caio | https://github.com/CaioOsorio |   [![Linkedin Badge](https://img.shields.io/badge/Linkedin-blue?style=flat-square&logo=Linkedin&logoColor=white)] (https://www.linkedin.com/in/caio-osorio-a67224200)    |
+| Caio | https://github.com/CaioOsorio |      [![Linkedin Badge](https://img.shields.io/badge/Linkedin-blue?style=flat-square&logo=Linkedin&logoColor=white)](https://www.linkedin.com/in/joaomarcosoliveiraa)     |
 | Thiago | https://github.com/yrnThiago | https://www.linkedin.com/in/thiago-ribeiro-690b4114b/ |
 | Joniel | https://github.com/JonielOliveira | https://www.linkedin.com/in/jonielrodrigues |
 | Henrique | .....|........|
