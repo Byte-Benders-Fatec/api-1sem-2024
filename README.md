@@ -19,15 +19,16 @@ Como parte dos requisitos da entrega da Sprint 1 foi criado um Protótipo do pro
 
 ## Tecnologias Utilizadas 
 As seguintes tecnologias foram utilizadas no Projeto:
+Java, Java Swing, MYSQL, SQLCODER e OLLAMA.
 
 
 ## Equipe 
 | Nome | GitHub | LinkedIn |
 |------|--------|----------|
-| Caio | https://github.com/CaioOsorio |      [![Linkedin Badge](https://img.shields.io/badge/Linkedin-blue?style=flat-square&logo=Linkedin&logoColor=white)](https://www.linkedin.com/in/caio-osorio-a67224200)     |
-| Thiago | https://github.com/yrnThiago |     [![Linkedin Badge](https://img.shields.io/badge/Linkedin-blue?style=flat-square&logo=Linkedin&logoColor=white)](https://www.linkedin.com/in/thiago-ribeiro-690b4114b/)  |
-| Joniel | https://github.com/JonielOliveira |     [![Linkedin Badge](https://img.shields.io/badge/Linkedin-blue?style=flat-square&logo=Linkedin&logoColor=white)](https://www.linkedin.com/in/jonielrodrigues)  |
+| Caio | [![GitHub Badge](https://img.shields.io/badge/GitHub-111217?style=flat-square&logo=github&logoColor=white)](https://github.com/CaioOsorio) |      [![Linkedin Badge](https://img.shields.io/badge/Linkedin-blue?style=flat-square&logo=Linkedin&logoColor=white)](https://www.linkedin.com/in/caio-osorio-a67224200)     |
+| Thiago | [![GitHub Badge](https://img.shields.io/badge/GitHub-111217?style=flat-square&logo=github&logoColor=white)](https://github.com/yrnThiago) |     [![Linkedin Badge](https://img.shields.io/badge/Linkedin-blue?style=flat-square&logo=Linkedin&logoColor=white)](https://www.linkedin.com/in/thiago-ribeiro-690b4114b/)  |
+| Joniel | [![GitHub Badge](https://img.shields.io/badge/GitHub-111217?style=flat-square&logo=github&logoColor=white)](https://github.com/JonielOliveira) |     [![Linkedin Badge](https://img.shields.io/badge/Linkedin-blue?style=flat-square&logo=Linkedin&logoColor=white)](https://www.linkedin.com/in/jonielrodrigues)  |
 | Henrique | .....||
-| Lucas | https://github.com/LucasCassiano1 |     [![Linkedin Badge](https://img.shields.io/badge/Linkedin-blue?style=flat-square&logo=Linkedin&logoColor=white)](https://www.linkedin.com/in/lucas-cassiano-pontes-02b4a6301?trk=contact-info)  |
-| Mariana | https://github.com/Marianatebecherani |     [![Linkedin Badge](https://img.shields.io/badge/Linkedin-blue?style=flat-square&logo=Linkedin&logoColor=white)](https://www.linkedin.com/in/mariana-rebelo-tebecherani-3207a4214)  |
-| Diego | https://github.com/Diegocastro5 |    [![Linkedin Badge](https://img.shields.io/badge/Linkedin-blue?style=flat-square&logo=Linkedin&logoColor=white)](https://www.linkedin.com/in/diegocastro91/)  |
+| Lucas | [![GitHub Badge](https://img.shields.io/badge/GitHub-111217?style=flat-square&logo=github&logoColor=white)](https://github.com/LucasCassiano1) |     [![Linkedin Badge](https://img.shields.io/badge/Linkedin-blue?style=flat-square&logo=Linkedin&logoColor=white)](https://www.linkedin.com/in/lucas-cassiano-pontes-02b4a6301?trk=contact-info)  |
+| Mariana | [![GitHub Badge](https://img.shields.io/badge/GitHub-111217?style=flat-square&logo=github&logoColor=white)](https://github.com/Marianatebecherani) |     [![Linkedin Badge](https://img.shields.io/badge/Linkedin-blue?style=flat-square&logo=Linkedin&logoColor=white)](https://www.linkedin.com/in/mariana-rebelo-tebecherani-3207a4214)  |
+| Diego | [![GitHub Badge](https://img.shields.io/badge/GitHub-111217?style=flat-square&logo=github&logoColor=white)](https://github.com/Diegocastro5) |    [![Linkedin Badge](https://img.shields.io/badge/Linkedin-blue?style=flat-square&logo=Linkedin&logoColor=white)](https://www.linkedin.com/in/diegocastro91/)  |
