@@ -23,6 +23,9 @@ Consiste na criação de um Chatbot(Similar ao GPT) que busca auxiliar empresas 
 Como parte dos requisitos da entrega da Sprint 1 foi criado um Protótipo do projeto para apresentação ao cliente. Segue em vídeo a demonstração do protótipo em funcionamento:
 
 
+https://github.com/Byte-Benders-Fatec/api-1sem-2024/assets/65740833/c0e1ea75-40da-4563-9fa5-cb95d174d6c0
+
+
 ## Tecnologias Utilizadas 
 As seguintes tecnologias foram utilizadas no Projeto:
 Java, Java Swing, MYSQL, SQLCODER e OLLAMA.
