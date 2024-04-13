@@ -18,6 +18,22 @@ Consiste na criação de um Chatbot(Similar ao GPT) que busca auxiliar empresas 
 | Protótipo | 95 | 2 | "Como cliente quero uma interface que mostre como irá funcionar o programa, para que eu possa saber como realizarei as pesquisas" |
 
 ### Sprint 2
+| Item | Prioridade | ID | User Stories |
+|------|------------|----|--------------|
+| Desenvolvimento do Software - Back-End | 90 | 3 | "Como cliente, quero uma interface que contenha um espaço eficaz para que se possa digitar uma pergunta, para um banco de dados, assim, ele devolverá uma resposta em uma linguagem natural, consequentemente poderei pesquisar qualquer conteúdo dentro do banco de dados selecionado" |
+| Criação Banco de dados - Back-End | 85 | 4 | Criação de banco de dados fictícios para serem utilizados com o projeto. |
+
+### Sprint 3
+| Item | Prioridade | ID | User Stories |
+|------|------------|----|--------------|
+| Desenvolvimento de Funcionalidade: Troca de banco de dados | 80 | 5 | "Como usuário quero que em minha interface tenha uma opção para realizar a troca de banco de dados, podendo escolher qual banco de dados será o que eu desejo trocar e continuar utilizando para as pesquisas com o software". |
+
+### Sprint 4
+| Item | Prioridade | ID | User Stories |
+|------|------------|----|--------------|
+| Desenvolvimento de Funcionalidade : Troca de LLM | 75 | 6 | "Como usuário, quero que tenha em minha interface uma opção para que se possa trocar qual IA eu irei utilizar, pois para cada tipo de utilização tenho um tipo de IA diferente" |
+
+
 
 ## Protótipo 
 Como parte dos requisitos da entrega da Sprint 1 foi criado um Protótipo do projeto para apresentação ao cliente. Segue em vídeo a demonstração do protótipo em funcionamento:
