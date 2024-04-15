@@ -19,4 +19,5 @@ https://github.com/Byte-Benders-Fatec/api-1sem-2024/assets/65740833/c0e1ea75-40d
 O andamento das tarefas pode ser visto observando o gráfico Burndown inserido abaixo.
 
 
+![Burndown](https://github.com/Byte-Benders-Fatec/api-1sem-2024/assets/143470914/14212650-33ba-42a8-bab7-61378d5a415a)
 
