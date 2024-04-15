@@ -4,7 +4,7 @@ Consiste na criação de um Chatbot(Similar ao GPT) que busca auxiliar empresas 
 ### Entrega de Sprints 🎯
 | Sprint | Data | Status | Relátorios |
 |--------|------|--------|------------|
-| 01 | 14/04/2024 | Em andamento |..... |
+| 01 | 14/04/2024 | Concluído |<a href="https://github.com/Byte-Benders-Fatec/api-1sem-2024/blob/Sprint-1/README.md"> Sprint 01 </a>|
 | 02 | 05/05/2024 | Em breve |..... |
 | 03 | 26/05/2024 | Em breve |..... |
 | 04 | 16/06/2024 | Em breve |..... |
