@@ -28,6 +28,10 @@ public class SqlExecutor {
 
         stmt.close();
 
+        if (resultSQLQuery.isBlank()) {
+            resultSQLQuery = "Não encontramos resultados...";
+        }
+
         return resultSQLQuery;
     }
     
