@@ -12,5 +12,5 @@ create table alunos(
     aluno_nome varchar(30)
     );
 
-Generate only a valid (syntactically correct) executable Postgres SQL query (without any explanation of the query) for the following question:
+Generate only a valid (syntactically correct) executable Postgres SQL query (without any explanation of the query) for the following question (translate from portuguese to english unless if you find table name):
 `<question>`:
