@@ -14,8 +14,11 @@ public class GUI extends JFrame {
     private JTextArea schemaField;
     private JButton getSQLButton;
     private JTextArea resultArea;
+    private SqlExecutor sqlExecutor;
 
     public GUI() {
+        sqlExecutor = new SqlExecutor();
+        
         setTitle("SQL Generator");
         setSize(400, 300);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -48,38 +51,11 @@ public class GUI extends JFrame {
 
         getSQLButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                String resultSQLQuery = "";
                 try {
                     SQLGenerator sqlGenerator = new SQLGenerator();
                     String sqlQuery = sqlGenerator.getSQL(questionField.getText(), schemaField.getText());
                     
-                    Connection connection = new ConnectionFactory().getConnection();
-
-                    Statement stmt = connection.createStatement();     
-                    ResultSet resultSet = stmt.executeQuery(sqlQuery); 
-                    ResultSetMetaData metadata = resultSet.getMetaData();
-                    int numColumns = metadata.getColumnCount();
-
-                    while (resultSet.next()) { 
-                        for (int i = 1; i <= numColumns; i++) {
-                            String columnName = metadata.getColumnName(i);
-                            String sqlType = metadata.getColumnTypeName(i);
-                            Object value = resultSet.getObject(i);
-
-                            // System.out.println(columnName);
-                            // System.out.println(sqlType);
-                            // System.out.println(value);
-
-                            resultSQLQuery += columnName + ": " + value.toString() + "\n";
-
-                            // int id = resultSet.getInt("aluno_id"); 
-                            // String client_name = resultSet.getString("aluno_nome"); 
-
-                            // resultSQLQuery += "ID: " + id + ", Cliente Nome: " + client_name + "\n";
-                        }
-                    }
-
-                    stmt.close();
+                    String resultSQLQuery = sqlExecutor.resultFromSqlQuery(sqlQuery);
 
                     resultArea.setText(resultSQLQuery);
                 } catch (SQLException ex) {
