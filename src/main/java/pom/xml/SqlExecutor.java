@@ -17,13 +17,19 @@ public class SqlExecutor {
         int numColumns = metadata.getColumnCount();
         String resultSQLQuery = "";
 
-        while (resultSet.next()) { 
+        while (resultSet.next()) {
+            String rowString = "";
             for (int i = 1; i <= numColumns; i++) {
                 String columnName = metadata.getColumnName(i);
                 Object value = resultSet.getObject(i);
 
-                resultSQLQuery += columnName + ": " + value.toString() + "\n";
+                String formattedColumnName = columnName.split("_")[1].toUpperCase();
+
+                rowString += formattedColumnName + ": " + value.toString() + ", ";
             }
+
+            resultSQLQuery += rowString + "\n";
+            rowString = "";
         }
 
         stmt.close();

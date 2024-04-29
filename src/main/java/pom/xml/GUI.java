@@ -1,17 +1,17 @@
 package pom.xml;
 
 import javax.swing.*;
+
+import pom.xml.utils.ReadFile;
+
 import java.awt.*;
 import java.awt.event.*;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
+import java.io.IOException;
 import java.sql.SQLException;
-import java.sql.Statement;
 
 public class GUI extends JFrame {
     private JTextField questionField;
-    private JTextArea schemaField;
+    private JTextField schemaField;
     private JButton getSQLButton;
     private JTextArea resultArea;
     private SqlExecutor sqlExecutor;
@@ -19,7 +19,7 @@ public class GUI extends JFrame {
     public GUI() {
         sqlExecutor = new SqlExecutor();
         
-        setTitle("SQL Generator");
+        setTitle("API-2SEM-2024");
         setSize(400, 300);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
@@ -28,9 +28,12 @@ public class GUI extends JFrame {
         JLabel questionLabel = new JLabel("Ask a question:");
         JLabel schemaLabel = new JLabel("Database Schema:");
         questionField = new JTextField();
-        schemaField = new JTextArea();
+        schemaField = new JTextField();
         schemaField.setPreferredSize(new Dimension(250, 40));
-        getSQLButton = new JButton("Get SQL");
+        schemaField.setText(AppConfig.getDbSchema());
+        schemaField.setEditable(false);
+        
+        getSQLButton = new JButton("Search");
         inputPanel.add(questionLabel);
         inputPanel.add(questionField);
         inputPanel.add(schemaLabel);
@@ -52,7 +55,7 @@ public class GUI extends JFrame {
         getSQLButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 try {
-                    SQLGenerator sqlGenerator = new SQLGenerator();
+                    SqlGenerator sqlGenerator = new SqlGenerator();
                     String sqlQuery = sqlGenerator.getSQL(questionField.getText(), schemaField.getText());
                     
                     String resultSQLQuery = sqlExecutor.resultFromSqlQuery(sqlQuery);
