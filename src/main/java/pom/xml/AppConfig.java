@@ -5,7 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 
-import pom.xml.utils.ReadFile;
+import pom.xml.utils.FileReader;
 
 public class AppConfig {
     private static final Properties prop = new Properties();
@@ -56,7 +56,7 @@ public class AppConfig {
     public static String getDbSchema() {
         String dbSchema = "";
         try {
-            dbSchema = ReadFile.convertTextFileToString(getDbSchemaFile());
+            dbSchema = FileReader.convertTextFileToString(getDbSchemaFile());
         } catch (IOException e) {
             e.printStackTrace();
         }

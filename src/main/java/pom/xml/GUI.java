@@ -2,7 +2,7 @@ package pom.xml;
 
 import javax.swing.*;
 
-import pom.xml.utils.ReadFile;
+import pom.xml.utils.FileReader;
 
 import java.awt.*;
 import java.awt.event.*;
