@@ -1,12 +1,8 @@
 package pom.xml;
 
 import javax.swing.*;
-
-import pom.xml.utils.FileReader;
-
 import java.awt.*;
 import java.awt.event.*;
-import java.io.IOException;
 import java.sql.SQLException;
 
 public class GUI extends JFrame {
@@ -25,15 +21,15 @@ public class GUI extends JFrame {
         setLayout(new BorderLayout());
 
         JPanel inputPanel = new JPanel(new GridLayout(3, 2));
-        JLabel questionLabel = new JLabel("Ask a question:");
-        JLabel schemaLabel = new JLabel("Database Schema:");
+        JLabel questionLabel = new JLabel("Faça uma pergunta:");
+        JLabel schemaLabel = new JLabel("Schema do banco de dados:");
         questionField = new JTextField();
         schemaField = new JTextField();
         schemaField.setPreferredSize(new Dimension(250, 40));
         schemaField.setText(AppConfig.getDbSchema());
         schemaField.setEditable(false);
         
-        getSQLButton = new JButton("Search");
+        getSQLButton = new JButton("Procurar");
         inputPanel.add(questionLabel);
         inputPanel.add(questionField);
         inputPanel.add(schemaLabel);
@@ -42,7 +38,7 @@ public class GUI extends JFrame {
         inputPanel.add(getSQLButton);
 
         JPanel resultPanel = new JPanel(new BorderLayout());
-        JLabel resultLabel = new JLabel("Result:");
+        JLabel resultLabel = new JLabel("Resultado:");
         resultArea = new JTextArea();
         resultArea.setEditable(false);
         JScrollPane scrollPane = new JScrollPane(resultArea);
