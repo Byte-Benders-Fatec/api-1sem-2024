@@ -11,7 +11,7 @@ Durante a segunda Sprint o objetivo do grupo foi a criação de uma interface fu
 Segue vídeo do estado atual do projeto:
 
 
-https://github.com/Byte-Benders-Fatec/api-1sem-2024/assets/65740833/e698cdf1-5951-441b-8f51-fedd620551c8
+https://github.com/Byte-Benders-Fatec/api-1sem-2024/assets/65740833/1e251d06-7bae-4c6d-9dea-3824da90cec9
 
 
 ### 📊Métricas do Time
