@@ -26,7 +26,7 @@ public class AppConfig {
     }
 
     public static String getDatabaseURL() {
-        return "jdbc:" + getDatabaseType() + "://" + getDatabaseHost() + "/" + getDatabaseName();
+        return "jdbc:" + getDatabaseType() + "://" + getDatabaseHost() + ":" + getDatabasePort() + "/" + getDatabaseName();
     }
 
     public static String getDatabaseType(){
@@ -35,6 +35,10 @@ public class AppConfig {
 
     public static String getDatabaseHost(){
         return prop.getProperty("DB.HOST");
+    }
+
+    public static String getDatabasePort(){
+        return prop.getProperty("DB.PORT");
     }
 
     public static String getDatabaseName(){
