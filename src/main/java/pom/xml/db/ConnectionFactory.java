@@ -6,11 +6,12 @@ import pom.xml.AppConfig;
 import java.sql.Connection;
 
 public class ConnectionFactory {
+    private AppConfig appConfig = new AppConfig(); 
 
     public Connection getConnection() {
-        String url = AppConfig.getDatabaseURL();
-        String username = AppConfig.getDatabaseUsername();
-        String password = AppConfig.getDatabasePassword();
+        String url = appConfig.getDatabaseURL();
+        String username = appConfig.getDatabaseUsername();
+        String password = appConfig.getDatabasePassword();
         
         try {
             return DriverManager.getConnection(url, username, password);
