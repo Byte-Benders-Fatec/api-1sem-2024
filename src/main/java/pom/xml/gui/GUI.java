@@ -16,9 +16,12 @@ public class GUI extends JFrame {
     private JButton getSQLButton;
     private JTextArea resultArea;
     private SQLExecutor sqlExecutor;
+    private AppConfig appConfig;
 
     public GUI() {
+        appConfig = new AppConfig();
         sqlExecutor = new SQLExecutor();
+        
         
         setTitle("API-2SEM-2024");
         setSize(400, 300);
@@ -31,7 +34,7 @@ public class GUI extends JFrame {
         questionField = new JTextField();
         schemaField = new JTextField();
         schemaField.setPreferredSize(new Dimension(250, 40));
-        schemaField.setText(AppConfig.getDbSchema());
+        schemaField.setText(appConfig.getDbSchema());
         schemaField.setEditable(false);
         
         getSQLButton = new JButton("Procurar");
