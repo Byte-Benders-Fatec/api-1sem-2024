@@ -6,7 +6,7 @@ import java.util.Scanner;
 import io.github.amithkoujalgi.ollama4j.core.OllamaAPI;
 
 public class FileReader {
-    public static String convertTextFileToString (String filePath) throws IOException {
+    public String convertTextFileToString (String filePath) throws IOException {
         ClassLoader classLoader = OllamaAPI.class.getClassLoader();
         InputStream inputStream = classLoader.getResourceAsStream(filePath);
         if (inputStream != null) {
