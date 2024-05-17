@@ -10,7 +10,7 @@ import pom.xml.utils.FileReader;
 
 public class AppConfig {
     private static final Properties prop = new Properties();
-    private static final String CONFIG_FILE = "src/main/resources/app.config";
+    private static final String CONFIG_FILE = "src\\main\\resources\\app.config";
 
     static {
         try (FileInputStream fis = new FileInputStream(CONFIG_FILE)) {
@@ -83,7 +83,8 @@ public class AppConfig {
     public String getDbSchema() {
         String dbSchema = "";
         try {
-            dbSchema = FileReader.convertTextFileToString(getDbSchemaFile());
+            FileReader fileReader = new FileReader();
+            dbSchema = fileReader.convertTextFileToString(getDbSchemaFile());
         } catch (IOException e) {
             e.printStackTrace();
         }
