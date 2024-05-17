@@ -2,6 +2,7 @@ package pom.xml;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Properties;
 
@@ -9,7 +10,7 @@ import pom.xml.utils.FileReader;
 
 public class AppConfig {
     private static final Properties prop = new Properties();
-    private static final String CONFIG_FILE = "src\\main\\resources\\app.config";
+    private static final String CONFIG_FILE = "src/main/resources/app.config";
 
     static {
         try (FileInputStream fis = new FileInputStream(CONFIG_FILE)) {
@@ -21,55 +22,65 @@ public class AppConfig {
         }
     }
 
-    public static String getProperty(String key) {
+    public void setNewConfig() {
+        try {
+            FileOutputStream fos = new FileOutputStream(CONFIG_FILE);
+
+            prop.store(fos, null);
+        } catch (Exception e) {
+            // TODO: handle exception
+        }
+    }
+
+    public String getProperty(String key) {
         return prop.getProperty(key);
     }
 
-    public static String getDatabaseURL() {
+    public String getDatabaseURL() {
         return "jdbc:" + getDatabaseType() + "://" + getDatabaseHost() + ":" + getDatabasePort() + "/" + getDatabaseName();
     }
 
-    public static String getDatabaseType(){
+    public String getDatabaseType(){
         return prop.getProperty("DB.TYPE");
     }
 
-    public static String getDatabaseHost(){
+    public String getDatabaseHost(){
         return prop.getProperty("DB.HOST");
     }
 
-    public static String getDatabasePort(){
+    public String getDatabasePort(){
         return prop.getProperty("DB.PORT");
     }
 
-    public static String getDatabaseName(){
+    public String getDatabaseName(){
         return prop.getProperty("DB.NAME");
     }
 
-    public static String getDatabaseUsername() {
+    public String getDatabaseUsername() {
         return prop.getProperty("DB.USERNAME");
     }
 
-    public static String getDatabasePassword() {
+    public String getDatabasePassword() {
         return prop.getProperty("DB.PASSWORD");
     }
 
-    public static String getOllamaHost() {
+    public String getOllamaHost() {
         return prop.getProperty("OLLAMA.HOST");
     }
     
-    public static String getOllamaPort() {
+    public String getOllamaPort() {
         return prop.getProperty("OLLAMA.PORT");
     }
 
-    public static String getOllamaUrl() {
+    public String getOllamaUrl() {
         return "http://" + getOllamaHost() + ":" + getOllamaPort(); 
     }
 
-    public static String getDbSchemaFile() {
+    public String getDbSchemaFile() {
         return prop.getProperty("DB.SCHEMA"); 
     }
 
-    public static String getDbSchema() {
+    public String getDbSchema() {
         String dbSchema = "";
         try {
             dbSchema = FileReader.convertTextFileToString(getDbSchemaFile());
@@ -78,6 +89,38 @@ public class AppConfig {
         }
 
         return dbSchema;
+    }
+
+    public void setDatabaseType(String newDatabaseType){
+        prop.setProperty("DB.TYPE", newDatabaseType);
+    }
+
+    public void setDatabaseHost(String newDatabaseHost){
+        prop.setProperty("DB.HOST", newDatabaseHost);
+    }
+
+    public void setDatabasePort(String newDatabasePort){
+        prop.setProperty("DB.PORT", newDatabasePort);
+    }
+
+    public void setDatabaseName(String newDatabaseName){
+        prop.setProperty("DB.NAME", newDatabaseName);
+    }
+
+    public void setDatabaseUsername(String newDatabaseUsername){
+        prop.setProperty("DB.USERNAME", newDatabaseUsername);
+    }
+
+    public void setDatabasePassword(String newDatabasePassword) {
+        prop.setProperty("DB.PASSWORD", newDatabasePassword);
+    }
+
+    public void setOllamaHost(String newOllamaHost) {
+        prop.setProperty("OLLAMA.HOST", newOllamaHost);
+    }
+    
+    public void setOllamaPort(String newOllamaPort) {
+        prop.setProperty("OLLAMA.PORT", newOllamaPort);
     }
     
 }
