@@ -29,7 +29,6 @@ public class AppConfig {
         
         try (FileInputStream fis = new FileInputStream(configFilePath)) {
             prop.load(fis);
-            System.out.println("It's file...");
         } catch (FileNotFoundException ex) {
             System.out.println("File not found");
             JOptionPane.showMessageDialog(null, "File not found");
@@ -97,7 +96,6 @@ public class AppConfig {
     }
 
     public String getDbSchemaFile() {
-        System.out.println(prop.getProperty("DB.SCHEMA"));
         return prop.getProperty("DB.SCHEMA"); 
     }
 
