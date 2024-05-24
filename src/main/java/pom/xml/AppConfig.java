@@ -6,6 +6,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Properties;
 
+import javax.swing.JOptionPane;
+
 import pom.xml.utils.FileReader;
 
 public class AppConfig {
@@ -17,18 +19,32 @@ public class AppConfig {
             prop.load(fis);
         } catch (FileNotFoundException ex) {
             System.out.println("File not found");
+            JOptionPane.showMessageDialog(null, "File not found");
         } catch (IOException ex) {
             System.out.println(ex);
         }
     }
 
-    public void setNewConfig() {
-        try {
-            FileOutputStream fos = new FileOutputStream(CONFIG_FILE);
+    public void loadNewConfig(String configFilePath){
+        
+        try (FileInputStream fis = new FileInputStream(configFilePath)) {
+            prop.load(fis);
+            System.out.println("It's file...");
+        } catch (FileNotFoundException ex) {
+            System.out.println("File not found");
+            JOptionPane.showMessageDialog(null, "File not found");
+        } catch (IOException ex) {
+            System.out.println(ex);
+        }
+        
+    }
 
+    public void setNewConfig(String configFilePath) {
+        try {
+            FileOutputStream fos = new FileOutputStream(configFilePath);
             prop.store(fos, null);
         } catch (Exception e) {
-            // TODO: handle exception
+            System.out.println(e);
         }
     }
 
@@ -64,6 +80,10 @@ public class AppConfig {
         return prop.getProperty("DB.PASSWORD");
     }
 
+    public String getOllamaModel() {
+        return prop.getProperty("OLLAMA.MODEL");
+    }
+
     public String getOllamaHost() {
         return prop.getProperty("OLLAMA.HOST");
     }
@@ -77,6 +97,7 @@ public class AppConfig {
     }
 
     public String getDbSchemaFile() {
+        System.out.println(prop.getProperty("DB.SCHEMA"));
         return prop.getProperty("DB.SCHEMA"); 
     }
 
@@ -116,12 +137,20 @@ public class AppConfig {
         prop.setProperty("DB.PASSWORD", newDatabasePassword);
     }
 
+    public void setOllamaModel(String newOllamaModel) {
+        prop.setProperty("OLLAMA.MODEL", newOllamaModel);
+    }
+
     public void setOllamaHost(String newOllamaHost) {
         prop.setProperty("OLLAMA.HOST", newOllamaHost);
     }
     
     public void setOllamaPort(String newOllamaPort) {
         prop.setProperty("OLLAMA.PORT", newOllamaPort);
+    }
+
+    public void setDbSchemaFile(String newDbSchemaFile) {
+        prop.setProperty("DB.SCHEMA", newDbSchemaFile); 
     }
     
 }

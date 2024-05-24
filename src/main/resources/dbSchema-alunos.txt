@@ -1,0 +1,16 @@
+Following is the database schema.
+
+CREATE DATABASE IF NOT EXISTS alunos;
+
+USE alunos;
+
+CREATE TABLE IF NOT EXISTS aluno (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    cpf VARCHAR(14) NOT NULL,
+    nome VARCHAR(255) NOT NULL,
+    data_nascimento DATE NOT NULL,
+    peso FLOAT NOT NULL,
+    altura FLOAT NOT NULL
+);
+Generate only a valid (syntactically correct) executable Postgres SQL query (without any explanation of the query) for the following question (translate question from portuguese to english unless tables name, sql commands):
+`<question>`:

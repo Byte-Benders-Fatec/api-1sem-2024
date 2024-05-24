@@ -14,6 +14,7 @@ public class GUI extends JFrame {
     private JTextField questionField;
     private JTextField schemaField;
     private JButton getSQLButton;
+    private JButton configButton;
     private JTextArea resultArea;
     private SQLExecutor sqlExecutor;
     private AppConfig appConfig;
@@ -22,11 +23,12 @@ public class GUI extends JFrame {
         appConfig = new AppConfig();
         sqlExecutor = new SQLExecutor();
         
-        
         setTitle("API-2SEM-2024");
-        setSize(400, 300);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setSize(400,300);
+        setResizable(true);
         setLayout(new BorderLayout());
+        setLocationRelativeTo(null);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         JPanel inputPanel = new JPanel(new GridLayout(3, 2));
         JLabel questionLabel = new JLabel("Faça uma pergunta:");
@@ -38,12 +40,14 @@ public class GUI extends JFrame {
         schemaField.setEditable(false);
         
         getSQLButton = new JButton("Procurar");
+        configButton = new JButton("Config");
         inputPanel.add(questionLabel);
         inputPanel.add(questionField);
         inputPanel.add(schemaLabel);
         inputPanel.add(schemaField);
         inputPanel.add(new JLabel());
         inputPanel.add(getSQLButton);
+        inputPanel.add(configButton);
 
         JPanel resultPanel = new JPanel(new BorderLayout());
         JLabel resultLabel = new JLabel("Resultado:");
@@ -59,8 +63,8 @@ public class GUI extends JFrame {
         getSQLButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 try {
-                    SQLGenerator sqlGenerator = new SQLGenerator();
-                    String sqlQuery = sqlGenerator.getSQL(questionField.getText(), schemaField.getText());
+                    SQLGenerator sqlGenerator = new SQLGenerator(appConfig);
+                    String sqlQuery = sqlGenerator.getSQL(questionField.getText());
                     
                     String resultSQLQuery = sqlExecutor.resultFromSqlQuery(sqlQuery);
 
@@ -70,6 +74,14 @@ public class GUI extends JFrame {
                 }
             }
         });
+
+        configButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                GUIAppConfig NovaInstanciaConfig = new GUIAppConfig(appConfig);
+                NovaInstanciaConfig.setVisible(true);
+            }
+        });
+
     }
 
     public static void main(String[] args) {
