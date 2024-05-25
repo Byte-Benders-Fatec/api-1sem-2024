@@ -7,8 +7,7 @@ import java.util.Scanner;
 
 public class FileReader {
     public String convertTextFileToString (String filePath) throws IOException {
-        //ClassLoader classLoader = OllamaAPI.class.getClassLoader();
-        //InputStream inputStream = classLoader.getResourceAsStream(filePath);
+
         InputStream inputStream = new FileInputStream(filePath);
         if (inputStream != null) {
             Scanner scanner = new Scanner(inputStream);

@@ -40,7 +40,7 @@ public class GUI extends JFrame {
         schemaField.setEditable(false);
         
         getSQLButton = new JButton("Procurar");
-        configButton = new JButton("Config");
+        configButton = new JButton("Configurar");
         inputPanel.add(questionLabel);
         inputPanel.add(questionField);
         inputPanel.add(schemaLabel);

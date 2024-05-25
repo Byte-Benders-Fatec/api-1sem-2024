@@ -13,6 +13,9 @@ import javax.swing.JOptionPane;
 public class GUIAppConfig extends javax.swing.JFrame {
     
     private AppConfig appConfig;
+    private final char sep = File.separatorChar;
+    private final String schemaPathComplement = "src" + sep + "main" + sep + "resources" + sep;
+    private final String appLocalPath = System.getProperty("user.dir") + sep + schemaPathComplement;
     
     public GUIAppConfig(AppConfig appConfig) {
         
@@ -36,17 +39,11 @@ public class GUIAppConfig extends javax.swing.JFrame {
             jPasswordField1.setText(appConfig.getDatabasePassword());
             jPasswordField2.setText(appConfig.getDatabasePassword());
 
-            char sep = File.separatorChar;
-            String schemaPathComplement = "src" + sep + "main" + sep + "resources" + sep;
-            
-            if(appConfig.getDbSchemaFile().indexOf(sep) != -1){
-                jTxtSchema.setText(appConfig.getDbSchemaFile());
-            }
-            else{
+            if(appConfig.getDbSchemaFile().indexOf(sep) == -1){
                 appConfig.setDbSchemaFile(schemaPathComplement + appConfig.getDbSchemaFile());
-                jTxtSchema.setText(appConfig.getDbSchemaFile());
             }
-            
+
+            jTxtSchema.setText(appConfig.getDbSchemaFile());      
             jTxtModelLLM.setText(appConfig.getOllamaModel());
             jTxtHostLLM.setText(appConfig.getOllamaHost());
             jTxtPortLLM.setText(appConfig.getOllamaPort());
@@ -400,9 +397,8 @@ public class GUIAppConfig extends javax.swing.JFrame {
 
     private void jButtonFindActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonFindActionPerformed
     
-        String listLocalPath = System.getProperty("user.dir");
         JFileChooser fc = new JFileChooser();
-        fc.setCurrentDirectory(new File(listLocalPath));
+        fc.setCurrentDirectory(new File(appLocalPath));
         try{
             int resp = fc.showOpenDialog(null);
             if(resp == JFileChooser.APPROVE_OPTION){                
@@ -418,7 +414,6 @@ public class GUIAppConfig extends javax.swing.JFrame {
 
     private void jButtonLoadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLoadActionPerformed
 
-        String appLocalPath = System.getProperty("user.dir");
         JFileChooser fc = new JFileChooser();
         fc.setCurrentDirectory(new File(appLocalPath));
         try{
@@ -436,6 +431,11 @@ public class GUIAppConfig extends javax.swing.JFrame {
                 jTxtUserName.setText(appConfig.getDatabaseUsername());
                 jPasswordField1.setText(appConfig.getDatabasePassword());
                 jPasswordField2.setText(appConfig.getDatabasePassword());
+                
+                if(appConfig.getDbSchemaFile().indexOf(sep) == -1){
+                    appConfig.setDbSchemaFile(schemaPathComplement + appConfig.getDbSchemaFile());
+                }
+
                 jTxtSchema.setText(appConfig.getDbSchemaFile());
                 jTxtModelLLM.setText(appConfig.getOllamaModel());
                 jTxtHostLLM.setText(appConfig.getOllamaHost());
@@ -508,7 +508,15 @@ public class GUIAppConfig extends javax.swing.JFrame {
                 appConfig.setDatabaseName(jTxtName.getText());
                 appConfig.setDatabaseUsername(jTxtUserName.getText());
                 appConfig.setDatabasePassword(new String(jPasswordField1.getPassword()));
-                appConfig.setDbSchemaFile(jTxtSchema.getText());
+                
+                int index = jTxtSchema.getText().indexOf(schemaPathComplement);
+                if(index != -1){
+                    appConfig.setDbSchemaFile(jTxtSchema.getText().substring(index));
+                }
+                else{
+                    appConfig.setDbSchemaFile(jTxtSchema.getText());
+                }
+
                 appConfig.setOllamaModel(jTxtModelLLM.getText());
                 appConfig.setOllamaHost(jTxtHostLLM.getText());
                 appConfig.setOllamaPort(jTxtPortLLM.getText());          
@@ -531,7 +539,6 @@ public class GUIAppConfig extends javax.swing.JFrame {
         
         if(resp){
         
-            String appLocalPath = System.getProperty("user.dir");
             JFileChooser fc = new JFileChooser();
             fc.setCurrentDirectory(new File(appLocalPath));
             try{
