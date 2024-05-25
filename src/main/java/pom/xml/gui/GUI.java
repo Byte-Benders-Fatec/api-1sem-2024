@@ -21,7 +21,7 @@ public class GUI extends JFrame {
 
     public GUI() {
         appConfig = new AppConfig();
-        sqlExecutor = new SQLExecutor();
+        sqlExecutor = new SQLExecutor(appConfig);
         
         setTitle("API-2SEM-2024");
         setSize(400,300);

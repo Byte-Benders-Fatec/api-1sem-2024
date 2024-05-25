@@ -1,5 +1,6 @@
 package pom.xml;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -11,27 +12,26 @@ import javax.swing.JOptionPane;
 import pom.xml.utils.FileReader;
 
 public class AppConfig {
-    private static final Properties prop = new Properties();
-    private static final String CONFIG_FILE = "src\\main\\resources\\app.config";
 
-    static {
-        try (FileInputStream fis = new FileInputStream(CONFIG_FILE)) {
-            prop.load(fis);
-        } catch (FileNotFoundException ex) {
-            System.out.println("File not found");
-            JOptionPane.showMessageDialog(null, "File not found");
-        } catch (IOException ex) {
-            System.out.println(ex);
-        }
+    private final Properties prop;
+    private String filePath;
+    private String configFilePath;
+    
+    public AppConfig() {
+        prop = new Properties();
+        char sep = File.separatorChar;
+        filePath = "src" + sep + "main" + sep + "resources" + sep;
+        configFilePath = filePath + "app.config";
+        this.loadConfig(configFilePath);
     }
 
-    public void loadNewConfig(String configFilePath){
+    public void loadConfig(String configFilePath){
         
         try (FileInputStream fis = new FileInputStream(configFilePath)) {
             prop.load(fis);
+            this.setConfigFilePath(configFilePath);
         } catch (FileNotFoundException ex) {
-            System.out.println("File not found");
-            JOptionPane.showMessageDialog(null, "File not found");
+            JOptionPane.showMessageDialog(null, "File not found!");
         } catch (IOException ex) {
             System.out.println(ex);
         }
@@ -45,6 +45,10 @@ public class AppConfig {
         } catch (Exception e) {
             System.out.println(e);
         }
+    }
+
+    public String getConfigFilePath() {
+        return configFilePath;
     }
 
     public String getProperty(String key) {
@@ -103,12 +107,23 @@ public class AppConfig {
         String dbSchema = "";
         try {
             FileReader fileReader = new FileReader();
-            dbSchema = fileReader.convertTextFileToString(getDbSchemaFile());
+
+            char sep = File.separatorChar;
+            if(getDbSchemaFile().indexOf(sep) != -1){
+                dbSchema = fileReader.convertTextFileToString(getDbSchemaFile());
+            }
+            else{
+                dbSchema = fileReader.convertTextFileToString(filePath + getDbSchemaFile());
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
 
         return dbSchema;
+    }
+
+    public void setConfigFilePath(String configFilePath){
+        this.configFilePath = configFilePath;
     }
 
     public void setDatabaseType(String newDatabaseType){

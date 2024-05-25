@@ -24,9 +24,10 @@ public class GUIAppConfig extends javax.swing.JFrame {
         setLayout(new BorderLayout());
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        
+
         this.appConfig = appConfig;
         if(appConfig.getDatabaseType() != null){
+            jTxtConfigDB.setText(appConfig.getConfigFilePath());
             jTxtType.setText(appConfig.getDatabaseType());
             jTxtHost.setText(appConfig.getDatabaseHost());
             jTxtPort.setText(appConfig.getDatabasePort());
@@ -34,12 +35,49 @@ public class GUIAppConfig extends javax.swing.JFrame {
             jTxtUserName.setText(appConfig.getDatabaseUsername());
             jPasswordField1.setText(appConfig.getDatabasePassword());
             jPasswordField2.setText(appConfig.getDatabasePassword());
-            jTxtSchema.setText(appConfig.getDbSchemaFile());
+
+            char sep = File.separatorChar;
+            String schemaPathComplement = "src" + sep + "main" + sep + "resources" + sep;
+            
+            if(appConfig.getDbSchemaFile().indexOf(sep) != -1){
+                jTxtSchema.setText(appConfig.getDbSchemaFile());
+            }
+            else{
+                appConfig.setDbSchemaFile(schemaPathComplement + appConfig.getDbSchemaFile());
+                jTxtSchema.setText(appConfig.getDbSchemaFile());
+            }
+            
             jTxtModelLLM.setText(appConfig.getOllamaModel());
             jTxtHostLLM.setText(appConfig.getOllamaHost());
             jTxtPortLLM.setText(appConfig.getOllamaPort());
         }        
     
+    }
+
+    public GUIAppConfig() {
+        
+        initComponents();
+        
+        setTitle("API-2SEM-2024");
+        setSize(520,600);
+        setResizable(false);
+        setLayout(new BorderLayout());
+        setLocationRelativeTo(null);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        
+        jTxtConfigDB.setText("");
+        jTxtType.setText("");
+        jTxtHost.setText("");
+        jTxtPort.setText("");
+        jTxtName.setText("");
+        jTxtUserName.setText("");
+        jPasswordField1.setText("");
+        jPasswordField2.setText("");
+        jTxtSchema.setText("");
+        jTxtModelLLM.setText("");
+        jTxtHostLLM.setText("");
+        jTxtPortLLM.setText("");
+        
     }
     
     /**
@@ -389,9 +427,8 @@ public class GUIAppConfig extends javax.swing.JFrame {
                 
                 File file = fc.getSelectedFile();
                 
-                appConfig.loadNewConfig(file.getCanonicalPath());
-                
-                jTxtConfigDB.setText(file.getName());
+                appConfig.loadConfig(file.getCanonicalPath());
+                jTxtConfigDB.setText(appConfig.getConfigFilePath());
                 jTxtType.setText(appConfig.getDatabaseType());
                 jTxtHost.setText(appConfig.getDatabaseHost());
                 jTxtPort.setText(appConfig.getDatabasePort());
@@ -464,7 +501,7 @@ public class GUIAppConfig extends javax.swing.JFrame {
         }
         else{
             if(Arrays.equals(jPasswordField1.getPassword(), jPasswordField2.getPassword())){
-                //jTxtConfigDB.getText();
+                
                 appConfig.setDatabaseType(jTxtType.getText());
                 appConfig.setDatabaseHost(jTxtHost.getText());
                 appConfig.setDatabasePort(jTxtPort.getText());

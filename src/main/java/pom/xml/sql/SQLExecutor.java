@@ -6,13 +6,20 @@ import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import pom.xml.AppConfig;
 import pom.xml.db.ConnectionFactory;
 
 
 public class SQLExecutor {
 
+    private final AppConfig appConfig; 
+
+    public SQLExecutor(AppConfig appConfig){
+        this.appConfig = appConfig;
+    }
+
     public String resultFromSqlQuery(String sqlQuery) throws SQLException {
-        Connection connection = new ConnectionFactory().getConnection();
+        Connection connection = new ConnectionFactory(appConfig).getConnection();
         Statement stmt = connection.createStatement();     
         ResultSet resultSet = stmt.executeQuery(sqlQuery); 
         ResultSetMetaData metadata = resultSet.getMetaData();

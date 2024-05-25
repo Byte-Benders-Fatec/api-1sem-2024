@@ -1,12 +1,18 @@
 package pom.xml.db;
 
+import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+
 import pom.xml.AppConfig;
-import java.sql.Connection;
 
 public class ConnectionFactory {
-    private AppConfig appConfig = new AppConfig(); 
+    
+    private final AppConfig appConfig; 
+
+    public ConnectionFactory(AppConfig appConfig){
+        this.appConfig = appConfig;
+    }
 
     public Connection getConnection() {
         String url = appConfig.getDatabaseURL();
