@@ -1,0 +1,5 @@
+# Pasta de execução local da aplicação
+target/
+
+# Pasta com configurações personalizadas da aplicação
+src/main/resources/custom/
