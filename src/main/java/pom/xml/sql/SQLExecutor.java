@@ -32,7 +32,9 @@ public class SQLExecutor {
                 String columnName = metadata.getColumnName(i);
                 Object value = resultSet.getObject(i);
 
-                String formattedColumnName = columnName.split("_")[1].toUpperCase();
+                //Verificar erro na lógica para implementar de forma adequada
+                //String formattedColumnName = columnName.split("_")[1].toUpperCase();
+                String formattedColumnName = columnName;
 
                 rowString += formattedColumnName + ": " + value.toString() + ", ";
             }
