@@ -16,10 +16,13 @@ public class GUIAppConfig extends javax.swing.JFrame {
     private final char sep = File.separatorChar;
     private final String schemaPathComplement = "src" + sep + "main" + sep + "resources" + sep;
     private final String appLocalPath = System.getProperty("user.dir") + sep + schemaPathComplement;
+    private GUI gui;
     
-    public GUIAppConfig(AppConfig appConfig) {
+    public GUIAppConfig(GUI gui, AppConfig appConfig) {
         
         initComponents();
+        
+        this.gui = gui;
         
         setTitle("API-2SEM-2024");
         setSize(520,600);
@@ -440,6 +443,8 @@ public class GUIAppConfig extends javax.swing.JFrame {
                 jTxtModelLLM.setText(appConfig.getOllamaModel());
                 jTxtHostLLM.setText(appConfig.getOllamaHost());
                 jTxtPortLLM.setText(appConfig.getOllamaPort());
+                
+                gui.setSchemaField();
                 
             }
         }
