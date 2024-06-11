@@ -12,6 +12,11 @@ Segue vídeo do estado atual do projeto:
 
 
 
+
+https://github.com/Byte-Benders-Fatec/api-1sem-2024/assets/65740833/f9ff8df1-ebec-45ca-8b5b-b9f0d63e88e7
+
+
+
 ### 📊Métricas do Time
 
 O andamento das tarefas pode ser visto observando o gráfico do Burndown inserido abaixo.
