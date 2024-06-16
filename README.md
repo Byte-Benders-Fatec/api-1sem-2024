@@ -5,9 +5,9 @@ Consiste na criação de um Chatbot(Similar ao GPT) que busca auxiliar empresas 
 | Sprint | Data | Status | Relátorios |
 |--------|------|--------|------------|
 | 01 | 14/04/2024 | Concluído |<a href="https://github.com/Byte-Benders-Fatec/api-1sem-2024/blob/Sprint-1/README.md"> Sprint 01 </a>|
-| 02 | 05/05/2024 | Em breve |<a href="https://github.com/Byte-Benders-Fatec/api-1sem-2024/tree/Sprint-2"> Sprint 02 </a> |
-| 03 | 26/05/2024 | Em breve |<a href="https://github.com/Byte-Benders-Fatec/api-1sem-2024/blob/Sprint-3/README.md"> Sprint 03 </a> |
-| 04 | 16/06/2024 | Em breve |..... |
+| 02 | 05/05/2024 | Concluído |<a href="https://github.com/Byte-Benders-Fatec/api-1sem-2024/tree/Sprint-2"> Sprint 02 </a> |
+| 03 | 26/05/2024 | Concluído |<a href="https://github.com/Byte-Benders-Fatec/api-1sem-2024/blob/Sprint-3/README.md"> Sprint 03 </a> |
+| 04 | 16/06/2024 | Concluído |<a href="https://github.com/Byte-Benders-Fatec/api-1sem-2024/tree/Sprint-4" Sprint 04 </a> |
 
 
 ## Backlog do Produto
