@@ -12,8 +12,7 @@ Segue vídeo do estado atual do projeto:
 
 
 
-(--adicionar vídeo aqui--)
-
+https://github.com/Byte-Benders-Fatec/api-1sem-2024/assets/143021491/12c22631-1758-4a6e-a967-ac2fac8b680a
 
 
 
