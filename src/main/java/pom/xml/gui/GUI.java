@@ -21,14 +21,13 @@ public class GUI extends javax.swing.JFrame {
         sqlExecutor = new SQLExecutor(appConfig);
         
         setTitle("API-2SEM-2024");
-        setSize(730,440);
+        setSize(730,490);
         setResizable(true);
         setLayout(new BorderLayout());
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
         schemaField.setText(appConfig.getDbSchema());
-        //schemaField.setText("");
 
     }
 
@@ -43,7 +42,6 @@ public class GUI extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         questionField = new javax.swing.JTextField();
-        schemaField = new javax.swing.JTextField();
         questionLabel = new javax.swing.JLabel();
         schemaLabel = new javax.swing.JLabel();
         resultLabel = new javax.swing.JLabel();
@@ -51,9 +49,10 @@ public class GUI extends javax.swing.JFrame {
         resultArea = new javax.swing.JTextArea();
         getSQLButton = new javax.swing.JButton();
         configButton = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        schemaField = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(700, 400));
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
@@ -63,16 +62,14 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
-        schemaField.setEditable(false);
-
         questionLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        questionLabel.setText("Faça uma pergunta:");
+        questionLabel.setText("Ask a question:");
 
         schemaLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        schemaLabel.setText("Schema do banco de dados:");
+        schemaLabel.setText("Database schema:");
 
         resultLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        resultLabel.setText("Resultado:");
+        resultLabel.setText("Result:");
 
         resultArea.setEditable(false);
         resultArea.setColumns(20);
@@ -80,7 +77,7 @@ public class GUI extends javax.swing.JFrame {
         jScrollPane1.setViewportView(resultArea);
 
         getSQLButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        getSQLButton.setText("Procurar");
+        getSQLButton.setText("Search");
         getSQLButton.setMaximumSize(new java.awt.Dimension(90, 23));
         getSQLButton.setMinimumSize(new java.awt.Dimension(90, 23));
         getSQLButton.setPreferredSize(new java.awt.Dimension(90, 23));
@@ -91,12 +88,17 @@ public class GUI extends javax.swing.JFrame {
         });
 
         configButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        configButton.setText("Configurar");
+        configButton.setText("Settings");
         configButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 configButtonActionPerformed(evt);
             }
         });
+
+        schemaField.setEditable(false);
+        schemaField.setColumns(20);
+        schemaField.setRows(5);
+        jScrollPane2.setViewportView(schemaField);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -105,45 +107,41 @@ public class GUI extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(12, 12, 12)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 660, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                    .addComponent(schemaLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(schemaLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(questionLabel))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(schemaField, javax.swing.GroupLayout.DEFAULT_SIZE, 488, Short.MAX_VALUE)
-                                .addComponent(questionField)))
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addComponent(resultLabel)
-                            .addGap(601, 601, 601))
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addComponent(configButton)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(getSQLButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(questionLabel)
+                                .addComponent(configButton))
+                            .addGap(86, 86, 86)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(getSQLButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(questionField, javax.swing.GroupLayout.PREFERRED_SIZE, 488, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jScrollPane2)
+                        .addComponent(resultLabel)
+                        .addComponent(jScrollPane1)))
                 .addContainerGap(14, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(17, 17, 17)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(questionField, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(questionLabel))
-                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(schemaLabel)
-                    .addComponent(schemaField, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(getSQLButton, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
-                    .addComponent(configButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(questionLabel)
+                    .addComponent(questionField, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(schemaLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(getSQLButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(configButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addComponent(resultLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(15, 15, 15))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -180,18 +178,24 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_configButtonActionPerformed
 
     private void getSQLButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getSQLButtonActionPerformed
-       
-        try {
-            SQLGenerator sqlGenerator = new SQLGenerator(appConfig);
-            String sqlQuery = sqlGenerator.getSQL(questionField.getText());
+        
+        if (questionField.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Question field empty!", "Warning", JOptionPane.WARNING_MESSAGE);
+        } else {
+            resultArea.setText("Processing...");
+            try {
+                SQLGenerator sqlGenerator = new SQLGenerator(appConfig);
+                String sqlQuery = sqlGenerator.getSQL(questionField.getText());
 
-            String resultSQLQuery = sqlExecutor.resultFromSqlQuery(sqlQuery);
+                String resultSQLQuery = sqlExecutor.resultFromSqlQuery(sqlQuery);
 
-            resultArea.setText(resultSQLQuery);
-        } catch (SQLException ex) {
-            throw new RuntimeException(ex);
+                resultArea.setText(resultSQLQuery);
+            } catch (SQLException ex) {
+                resultArea.setText("");
+                JOptionPane.showMessageDialog(this, "Sorry, invalid query!", "Information", JOptionPane.INFORMATION_MESSAGE);
+                throw new RuntimeException(ex);
+            }
         }
-
     }//GEN-LAST:event_getSQLButtonActionPerformed
     
     public void setSchemaField(){
@@ -212,11 +216,12 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JButton getSQLButton;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextField questionField;
     private javax.swing.JLabel questionLabel;
     private javax.swing.JTextArea resultArea;
     private javax.swing.JLabel resultLabel;
-    private javax.swing.JTextField schemaField;
+    private javax.swing.JTextArea schemaField;
     private javax.swing.JLabel schemaLabel;
     // End of variables declaration//GEN-END:variables
 }

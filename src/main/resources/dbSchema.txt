@@ -1,16 +1,19 @@
-Following is the database schema.
-
-DROP TABLE IF EXISTS clientes;
-create table clientes (
-	cli_id int primary key auto_increment,
-    cli_nome varchar(30)
+CREATE TABLE aluno (
+	id INT(10) NOT NULL,
+	cpf VARCHAR(14) NOT NULL,
+	nome VARCHAR(255) NOT NULL,
+	data_nascimento DATE(10) NOT NULL,
+	peso FLOAT(12) NOT NULL,
+	altura FLOAT(12) NOT NULL,
+	PRIMARY KEY (id),
 );
 
-DROP TABLE IF EXISTS alunos;
-create table alunos(
-	aluno_id int primary key auto_increment,
-    aluno_nome varchar(30)
+CREATE TABLE historico (
+	id INT(10) NOT NULL,
+	aluno_id INT(10) NOT NULL,
+	data_registro DATE(10) NOT NULL,
+	peso FLOAT(12) NOT NULL,
+	PRIMARY KEY (id),
+	FOREIGN KEY (aluno_id) REFERENCES aluno(id),
 );
 
-Generate only a valid (syntactically correct) executable Postgres SQL query (without any explanation of the query) for the following question (translate question from portuguese to english unless tables name, sql commands):
-`<question>`:

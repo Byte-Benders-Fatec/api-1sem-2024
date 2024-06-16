@@ -1,0 +1,4 @@
+Following is the database schema.
+<<<database_schema>>>
+Generate only a valid (syntactically correct) executable MySQL SQL query (without any explanation of the query) for the following question (translate question from portuguese to english unless tables name, sql commands):
+<<<question>>>:

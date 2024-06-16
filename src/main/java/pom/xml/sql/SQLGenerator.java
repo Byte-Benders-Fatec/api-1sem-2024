@@ -22,8 +22,10 @@ public class SQLGenerator {
             OllamaAPI ollamaAPI = new OllamaAPI(ollamaUrl);
             ollamaAPI.setRequestTimeoutSeconds(1000);
 
-            String databaseSchema = appConfig.getDbSchema();
-            String prompt = databaseSchema.replace("<question>", question);
+            String template = appConfig.getTemplate();
+            String schema = appConfig.getDbSchema();
+            String prompt = template.replace("<<<database_schema>>>", schema);
+            prompt = prompt.replace("<<<question>>>", question);
             
             OllamaResult result =
                     ollamaAPI.generate(appConfig.getOllamaModel(), prompt,

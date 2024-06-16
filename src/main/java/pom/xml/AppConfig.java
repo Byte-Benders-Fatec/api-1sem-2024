@@ -102,7 +102,7 @@ public class AppConfig {
     public String getDbSchemaFile() {
         return prop.getProperty("DB.SCHEMA"); 
     }
-
+    
     public String getDbSchema() {
         String dbSchema = "";
         try {
@@ -121,7 +121,30 @@ public class AppConfig {
 
         return dbSchema;
     }
+    
+    public String getTemplateFile() {
+        return prop.getProperty("OLLAMA.TEMPLATE"); 
+    }
+    
+    public String getTemplate() {
+        String template = "";
+        try {
+            FileReader fileReader = new FileReader();
 
+            char sep = File.separatorChar;
+            if(getTemplateFile().indexOf(sep) != -1){
+                template = fileReader.convertTextFileToString(getTemplateFile());
+            }
+            else{
+                template = fileReader.convertTextFileToString(filePath + getTemplateFile());
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return template;
+    }
+    
     public void setConfigFilePath(String configFilePath){
         this.configFilePath = configFilePath;
     }
@@ -164,6 +187,10 @@ public class AppConfig {
 
     public void setDbSchemaFile(String newDbSchemaFile) {
         prop.setProperty("DB.SCHEMA", newDbSchemaFile); 
+    }
+    
+    public void setTemplateFile(String newTemplateFile) {
+        prop.setProperty("OLLAMA.TEMPLATE", newTemplateFile); 
     }
     
 }

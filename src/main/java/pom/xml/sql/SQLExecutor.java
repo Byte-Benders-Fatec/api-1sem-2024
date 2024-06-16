@@ -36,7 +36,11 @@ public class SQLExecutor {
                 //String formattedColumnName = columnName.split("_")[1].toUpperCase();
                 String formattedColumnName = columnName;
 
-                rowString += formattedColumnName + ": " + value.toString() + ", ";
+                if (i < numColumns) {
+                    rowString += formattedColumnName + ": " + value.toString() + ", ";
+                } else {
+                    rowString += formattedColumnName + ": " + value.toString();
+                }
             }
 
             resultSQLQuery += rowString + "\n";
@@ -46,7 +50,7 @@ public class SQLExecutor {
         stmt.close();
 
         if (resultSQLQuery.isBlank()) {
-            resultSQLQuery = "Não encontramos resultados...";
+            resultSQLQuery = "We found no results...";
         }
 
         return resultSQLQuery;
