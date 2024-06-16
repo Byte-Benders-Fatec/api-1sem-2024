@@ -1,9 +1,6 @@
 # Sprint 4 - 27/05 até 16/06
-Durante a quarta Sprint o objetivo do grupo foi (...) 
 
-(texto da 3ª Sprint)
-a adição de uma área para que o usuário possa trocar o banco de dados que está utilizando ,fazendo com que seja possivel que o mesmo usuario utilize o programa com varios bancos, além da adição de uma aba nova na interface para que o usuário possa fazer essa mudança, também foi adicionado um Modelo de Linguagem simples para efetuar a tradução dos queries e resposta do ususario com mais precisão. Para a criação dessas features foram utilizadas as tecnologias já delimitadas nesse GitHub, mais especificamente na Sprint 2 foi utilizado o Java e bibliotecas como Java Swing, Java SQL e Ollama4j, Ollama e MYSQL.
-(texto da 3ª Sprint)
+Durante a quarta Sprint o objetivo do grupo foi a adição de uma nova função no botão configurações da interface que permite que o usuário troque a LLM que ele está utilizando de acordo com a potência de seu computador e sua própria preferência, também foi adicionado uma função que permite que o aplicativo extraia o Schema do banco de dados que está sendo utilizado, fazendo com que a LLM tenha mais precisão nas suas respostas permitindo uma experiência melhor para o usuário , além da melhoria de pequenos elementos na interface para que ela fique mais bonita para a apresentação na Feira de Soluções da FATEC. 
 
 ### 🎯Objetivos da Sprint
 1. Troca de LLM✔️
