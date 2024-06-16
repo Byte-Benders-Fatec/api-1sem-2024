@@ -512,6 +512,7 @@ public class GUIAppConfig extends javax.swing.JFrame {
         boolean resp = applyConfiguration(true);
         if (resp & jChkBoxAutoSchema.isSelected()) {
             DatabaseSchemaImporter.importSchema(appConfig);
+            gui.setSchemaField();
         }
         
     }//GEN-LAST:event_jButtonApplyActionPerformed
