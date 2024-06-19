@@ -1,54 +1,39 @@
-# Sobre o Projeto 🧩
-Consiste na criação de um Chatbot(Similar ao GPT) que busca auxiliar empresas na utlização de banco de dados, por meio de uma LLM que se especializa em transformar linguagem de alto nível em requisições na linguagem de programação SQL, que por meio de linguagem Java será executada no banco de dados da empresa e devolverá, em linguagem de alto nível, a resposta para a requisição feita pelo usuário.    
+# Tutorial de Uso
 
-### Entrega de Sprints 🎯
-| Sprint | Data | Status | Relátorios |
-|--------|------|--------|------------|
-| 01 | 14/04/2024 | Concluído |<a href="https://github.com/Byte-Benders-Fatec/api-1sem-2024/blob/Sprint-1/README.md"> Sprint 01 </a>|
-| 02 | 05/05/2024 | Concluído |<a href="https://github.com/Byte-Benders-Fatec/api-1sem-2024/tree/Sprint-2"> Sprint 02 </a> |
-| 03 | 26/05/2024 | Concluído |<a href="https://github.com/Byte-Benders-Fatec/api-1sem-2024/blob/Sprint-3/README.md"> Sprint 03 </a> |
-| 04 | 16/06/2024 | Concluído |<a href="https://github.com/Byte-Benders-Fatec/api-1sem-2024/tree/Sprint-4"> Sprint 04 </a> |
+## Passo 1
 
+Primeiro é necessário fazer a instalação do programa <a href="https://ollama.com/download"> Ollama </a> e de alguma LLM em GGUF para ser utilizada por meio do site Hugging Face, neste caso será utilizada uma LLM especializada na criação de requisições SQL, como por exemplo o <a href="https://huggingface.co/TheBloke/nsql-llama-2-7B-GGUF"> NSQL </a> e o <a href="https://huggingface.co/TheBloke/sqlcoder-7B-GGUF"> SQLCoder </a>.
 
-## Backlog do Produto
+## Passo 2
 
-### Sprint 2
-| Item | Prioridade | ID | User Stories |
-|------|------------|----|--------------|
-| Desenvolvimento do Software - Back-End | 90 | 3 | "Como cliente, quero uma interface que contenha um espaço eficaz para que se possa digitar uma pergunta, para um banco de dados, assim, ele devolverá uma resposta em uma linguagem natural, consequentemente poderei pesquisar qualquer conteúdo dentro do banco de dados selecionado" |
-| Criação Banco de dados - Back-End | 85 | 4 | Criação de banco de dados fictícios para serem utilizados com o projeto. |
+Após o dowload do arquivo GGUF é necessário criar um arquivo de texto com o nome de "ModelFile" incluindo o nome do arquivo e o local onde ele foi baixado.
 
-### Sprint 3
-| Item | Prioridade | ID | User Stories |
-|------|------------|----|--------------|
-| Desenvolvimento de Funcionalidade: Troca de banco de dados | 80 | 5 | "Como usuário quero que em minha interface tenha uma opção para realizar a troca de banco de dados, podendo escolher qual banco de dados será o que eu desejo trocar e continuar utilizando para as pesquisas com o software". |
+Por exemplo, com o caso da LLM SQLCoder seria inserido no ModelFile o seguinte conteúdo:
+FROM *(Aqui estaria o PATH completo arquivo)* /sqlcoder-7b.Q4_K_M.gguf
 
-### Sprint 4
-| Item | Prioridade | ID | User Stories |
-|------|------------|----|--------------|
-| Desenvolvimento de Funcionalidade : Troca de LLM | 75 | 6 | "Como usuário, quero que tenha em minha interface uma opção para que se possa trocar qual IA eu irei utilizar, pois para cada tipo de utilização tenho um tipo de IA diferente" |
+## Passo 3
 
+No seu CMD insira o comando ollama create *nome* -f Modelfile.
 
+Onde o campo *nome* pode ser substituido pelo nome que você quiser.
 
-## Protótipo 
-Como parte dos requisitos da entrega da Sprint 1 foi criado um Protótipo do projeto para apresentação ao cliente. Segue em vídeo a demonstração do protótipo em funcionamento:
+Após a criação utilize o comando ollama run *nome*  
 
+Com isso está finalizada a parte de configuração do Ollama. Caso tenha tido alguma dificuldade mais informações estão disponiveis neste <a href="https://www.markhneedham.com/blog/2023/10/18/ollama-hugging-face-gguf-models/"> Site </a> .
 
-https://github.com/Byte-Benders-Fatec/api-1sem-2024/assets/65740833/c0e1ea75-40da-4563-9fa5-cb95d174d6c0
+## Passo 4 
 
+Faça o download do código pelo github em sua versão mais atualizada <a href="https://github.com/Byte-Benders-Fatec/api-1sem-2024/tree/Sprint-4"> aqui </a> , clicando no botão code e Download zip.
 
-## Tecnologias Utilizadas 
-As seguintes tecnologias foram utilizadas no Projeto:
-Java, Java Swing, MYSQL, SQLCODER e OLLAMA.
+![image](https://github.com/Byte-Benders-Fatec/api-1sem-2024/assets/143470914/19048db4-4983-482a-97f1-a3b5aa96d8d0)
+
+## Passo 5
+
+Com o código rodando selecione o botão Settings, nesta aba altere as informações para que o local, port, name, username e senha estejam de acordo com os dados do banco que você quer utilizar. O Programa funciona com todos os bancos de dados que estejam em um mesmo schema, você pode alterar o schema mudando a variavel *name* nas configurações. 
+
+Também na aba Settings na parte de LLM você poderá selecionar qual modelo quer utilizar caso tenha instalado mais de um utilizando o menu dropdown "Model".
+
+![image](https://github.com/Byte-Benders-Fatec/api-1sem-2024/assets/143470914/ce5c19f0-8b2f-4c87-b9ff-d9267803872b)
 
 
-## Equipe 
-| Nome | GitHub | LinkedIn |
-|------|--------|----------|
-| Caio | [![GitHub Badge](https://img.shields.io/badge/GitHub-111217?style=flat-square&logo=github&logoColor=white)](https://github.com/CaioOsorio) |      [![Linkedin Badge](https://img.shields.io/badge/Linkedin-blue?style=flat-square&logo=Linkedin&logoColor=white)](https://www.linkedin.com/in/caio-osorio-a67224200)     |
-| Thiago | [![GitHub Badge](https://img.shields.io/badge/GitHub-111217?style=flat-square&logo=github&logoColor=white)](https://github.com/yrnThiago) |     [![Linkedin Badge](https://img.shields.io/badge/Linkedin-blue?style=flat-square&logo=Linkedin&logoColor=white)](https://www.linkedin.com/in/thiago-ribeiro-690b4114b/)  |
-| Joniel | [![GitHub Badge](https://img.shields.io/badge/GitHub-111217?style=flat-square&logo=github&logoColor=white)](https://github.com/JonielOliveira) |     [![Linkedin Badge](https://img.shields.io/badge/Linkedin-blue?style=flat-square&logo=Linkedin&logoColor=white)](https://www.linkedin.com/in/jonielrodrigues)  |
-| Henrique |[![GitHub Badge](https://img.shields.io/badge/GitHub-111217?style=flat-square&logo=github&logoColor=white)](https://github.com/hriquen)||
-| Lucas | [![GitHub Badge](https://img.shields.io/badge/GitHub-111217?style=flat-square&logo=github&logoColor=white)](https://github.com/LucasCassiano1) |     [![Linkedin Badge](https://img.shields.io/badge/Linkedin-blue?style=flat-square&logo=Linkedin&logoColor=white)](https://www.linkedin.com/in/lucas-cassiano-pontes-02b4a6301?trk=contact-info)  |
-| Mariana | [![GitHub Badge](https://img.shields.io/badge/GitHub-111217?style=flat-square&logo=github&logoColor=white)](https://github.com/Marianatebecherani) |     [![Linkedin Badge](https://img.shields.io/badge/Linkedin-blue?style=flat-square&logo=Linkedin&logoColor=white)](https://www.linkedin.com/in/mariana-rebelo-tebecherani-3207a4214)  |
-| Diego | [![GitHub Badge](https://img.shields.io/badge/GitHub-111217?style=flat-square&logo=github&logoColor=white)](https://github.com/Diegocastro5) |    [![Linkedin Badge](https://img.shields.io/badge/Linkedin-blue?style=flat-square&logo=Linkedin&logoColor=white)](https://www.linkedin.com/in/diegocastro91/)  |
+Após a conclusão desses passos é apenas utilizar o aplicativo normalmente fazendo sua pergunta e apertando o botão "Search".
