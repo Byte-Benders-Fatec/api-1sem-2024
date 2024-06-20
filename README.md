@@ -41,6 +41,9 @@ https://github.com/Byte-Benders-Fatec/api-1sem-2024/assets/65740833/c0e1ea75-40d
 As seguintes tecnologias foram utilizadas no Projeto:
 Java, Java Swing, MYSQL, SQLCODER e OLLAMA.
 
+## Tutorial
+
+Caso esteja tendo dificuldades para usar o aplicativo acesse nosso <a href="https://github.com/Byte-Benders-Fatec/api-1sem-2024/tree/Tutorial"> Tutorial </a>.
 
 ## Equipe 
 | Nome | GitHub | LinkedIn |
