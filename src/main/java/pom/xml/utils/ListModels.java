@@ -8,7 +8,6 @@ import javax.swing.JOptionPane;
 
 import io.github.amithkoujalgi.ollama4j.core.OllamaAPI;
 import io.github.amithkoujalgi.ollama4j.core.models.Model;
-import pom.xml.AppConfig;
 
 public class ListModels {
 

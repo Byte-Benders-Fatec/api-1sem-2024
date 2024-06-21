@@ -3,7 +3,7 @@ package pom.xml.sql;
 import io.github.amithkoujalgi.ollama4j.core.OllamaAPI;
 import io.github.amithkoujalgi.ollama4j.core.models.OllamaResult;
 import io.github.amithkoujalgi.ollama4j.core.utils.OptionsBuilder;
-import pom.xml.AppConfig;
+import pom.xml.utils.AppConfig;
 
 
 public class SQLGenerator {

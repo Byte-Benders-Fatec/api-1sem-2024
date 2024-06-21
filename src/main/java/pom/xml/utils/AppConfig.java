@@ -1,4 +1,4 @@
-package pom.xml;
+package pom.xml.utils;
 
 import java.io.File;
 import java.io.FileInputStream;

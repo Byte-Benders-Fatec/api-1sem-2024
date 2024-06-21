@@ -6,7 +6,7 @@ import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import pom.xml.AppConfig;
+import pom.xml.utils.AppConfig;
 import pom.xml.db.ConnectionFactory;
 
 
@@ -31,15 +31,23 @@ public class SQLExecutor {
             for (int i = 1; i <= numColumns; i++) {
                 String columnName = metadata.getColumnName(i);
                 Object value = resultSet.getObject(i);
-
+                
                 //Verificar erro na lógica para implementar de forma adequada
                 //String formattedColumnName = columnName.split("_")[1].toUpperCase();
                 String formattedColumnName = columnName;
-
-                if (i < numColumns) {
-                    rowString += formattedColumnName + ": " + value.toString() + ", ";
+                
+                if (value != null) {
+                    if (i < numColumns) {
+                        rowString += formattedColumnName + ": " + value.toString() + ", ";
+                    } else {
+                        rowString += formattedColumnName + ": " + value.toString();
+                    }
                 } else {
-                    rowString += formattedColumnName + ": " + value.toString();
+                    if (i < numColumns) {
+                        rowString += formattedColumnName + ": " + "NULL" + ", ";
+                    } else {
+                        rowString += formattedColumnName + ": " + "NULL";
+                    }
                 }
             }
 
@@ -49,7 +57,7 @@ public class SQLExecutor {
 
         stmt.close();
 
-        if (resultSQLQuery.isBlank()) {
+        if (resultSQLQuery.isEmpty()) {
             resultSQLQuery = "We found no results...";
         }
 

@@ -8,7 +8,6 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import pom.xml.AppConfig;
 
 public class DatabaseSchemaImporter {
     

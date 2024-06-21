@@ -2,12 +2,13 @@
 package pom.xml.gui;
 
 import javax.swing.*;
-import pom.xml.AppConfig;
+import pom.xml.utils.AppConfig;
 import pom.xml.sql.SQLExecutor;
 import pom.xml.sql.SQLGenerator;
 import java.awt.*;
 import java.awt.event.*;
 import java.sql.SQLException;
+import java.util.concurrent.TimeUnit;
 
 public class GUI extends javax.swing.JFrame {
     private SQLExecutor sqlExecutor;
@@ -174,27 +175,41 @@ public class GUI extends javax.swing.JFrame {
                 
         GUIAppConfig NovaInstanciaConfig = new GUIAppConfig(this, appConfig);
         NovaInstanciaConfig.setVisible(true);
-       
+        configButton.setEnabled(false);
     }//GEN-LAST:event_configButtonActionPerformed
-
+    
+    public void configButtonEnable() {
+        configButton.setEnabled(true);
+    }
+    
     private void getSQLButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getSQLButtonActionPerformed
         
         if (questionField.getText().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Question field empty!", "Warning", JOptionPane.WARNING_MESSAGE);
         } else {
             resultArea.setText("Processing...");
-            try {
-                SQLGenerator sqlGenerator = new SQLGenerator(appConfig);
-                String sqlQuery = sqlGenerator.getSQL(questionField.getText());
-
-                String resultSQLQuery = sqlExecutor.resultFromSqlQuery(sqlQuery);
-
-                resultArea.setText(resultSQLQuery);
-            } catch (SQLException ex) {
-                resultArea.setText("");
-                JOptionPane.showMessageDialog(this, "Sorry, invalid query!", "Information", JOptionPane.INFORMATION_MESSAGE);
-                throw new RuntimeException(ex);
-            }
+            
+            new SwingWorker<String, String>() {
+                @Override
+                protected String doInBackground() throws Exception {
+                    // Realize as operações de longa duração aqui
+                    SQLGenerator sqlGenerator = new SQLGenerator(appConfig);
+                    String sqlQuery = sqlGenerator.getSQL(questionField.getText());
+                    return sqlExecutor.resultFromSqlQuery(sqlQuery);
+                }
+                @Override
+                protected void done() {
+                    try {
+                        // Atualize a área de texto com o resultado após a operação de longa duração
+                        String resultSQLQuery = get();
+                        resultArea.setText(resultSQLQuery);
+                    } catch (Exception e) {
+                        resultArea.setText("");
+                        JOptionPane.showMessageDialog(null, "Sorry, invalid query!", "Information", JOptionPane.INFORMATION_MESSAGE);
+                    }
+                }
+            }.execute();         
+                     
         }
     }//GEN-LAST:event_getSQLButtonActionPerformed
     

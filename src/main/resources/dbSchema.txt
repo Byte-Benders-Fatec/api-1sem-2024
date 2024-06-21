@@ -1,19 +1,36 @@
-CREATE TABLE aluno (
-	id INT(10) NOT NULL,
-	cpf VARCHAR(14) NOT NULL,
-	nome VARCHAR(255) NOT NULL,
-	data_nascimento DATE(10) NOT NULL,
-	peso FLOAT(12) NOT NULL,
-	altura FLOAT(12) NOT NULL,
-	PRIMARY KEY (id),
+CREATE TABLE autor (
+	id_autor INT(10) NOT NULL,
+	nome VARCHAR(100) NOT NULL,
+	nacionalidade VARCHAR(50),
+	PRIMARY KEY (id_autor),
 );
 
-CREATE TABLE historico (
-	id INT(10) NOT NULL,
-	aluno_id INT(10) NOT NULL,
-	data_registro DATE(10) NOT NULL,
-	peso FLOAT(12) NOT NULL,
-	PRIMARY KEY (id),
-	FOREIGN KEY (aluno_id) REFERENCES aluno(id),
+CREATE TABLE emprestimo (
+	id_emprestimo INT(10) NOT NULL,
+	id_usuario INT(10),
+	id_livro INT(10),
+	data_emprestimo DATE(10) NOT NULL,
+	data_devolucao DATE(10),
+	PRIMARY KEY (id_emprestimo),
+	FOREIGN KEY (id_livro) REFERENCES livro(id_livro),
+	FOREIGN KEY (id_usuario) REFERENCES usuario(id_usuario),
+);
+
+CREATE TABLE livro (
+	id_livro INT(10) NOT NULL,
+	titulo VARCHAR(100) NOT NULL,
+	genero VARCHAR(50),
+	ano_publicacao INT(10),
+	id_autor INT(10),
+	PRIMARY KEY (id_livro),
+	FOREIGN KEY (id_autor) REFERENCES autor(id_autor),
+);
+
+CREATE TABLE usuario (
+	id_usuario INT(10) NOT NULL,
+	nome VARCHAR(100) NOT NULL,
+	email VARCHAR(100) NOT NULL,
+	telefone VARCHAR(15),
+	PRIMARY KEY (id_usuario),
 );
 
