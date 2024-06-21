@@ -1,5 +1,6 @@
 package pom.xml.utils;
 
+import java.awt.Component;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -17,21 +18,21 @@ public class AppConfig {
     private String filePath;
     private String configFilePath;
     
-    public AppConfig() {
+    public AppConfig(Component componentParent) {
         prop = new Properties();
         char sep = File.separatorChar;
         filePath = "src" + sep + "main" + sep + "resources" + sep;
         configFilePath = filePath + "app.config";
-        this.loadConfig(configFilePath);
+        this.loadConfig(componentParent, configFilePath);
     }
 
-    public void loadConfig(String configFilePath){
+    public void loadConfig(Component componentParent, String configFilePath){
         
         try (FileInputStream fis = new FileInputStream(configFilePath)) {
             prop.load(fis);
             this.setConfigFilePath(configFilePath);
         } catch (FileNotFoundException ex) {
-            JOptionPane.showMessageDialog(null, "File not found!");
+            JOptionPane.showMessageDialog(componentParent, "File not found!");
         } catch (IOException ex) {
             System.out.println(ex);
         }

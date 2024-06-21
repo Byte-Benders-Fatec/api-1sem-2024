@@ -18,7 +18,7 @@ public class GUI extends javax.swing.JFrame {
         
         initComponents();
         
-        appConfig = new AppConfig();
+        appConfig = new AppConfig(this);
         sqlExecutor = new SQLExecutor(appConfig);
         
         setTitle("API-2SEM-2024");
@@ -205,13 +205,17 @@ public class GUI extends javax.swing.JFrame {
                         resultArea.setText(resultSQLQuery);
                     } catch (Exception e) {
                         resultArea.setText("");
-                        JOptionPane.showMessageDialog(null, "Sorry, invalid query!", "Information", JOptionPane.INFORMATION_MESSAGE);
+                        messageQuery();
                     }
                 }
             }.execute();         
                      
         }
     }//GEN-LAST:event_getSQLButtonActionPerformed
+    
+    public void messageQuery() {
+        JOptionPane.showMessageDialog(this, "Sorry, invalid query!", "Information", JOptionPane.INFORMATION_MESSAGE);
+    }
     
     public void setSchemaField(){
         schemaField.setText(appConfig.getDbSchema());

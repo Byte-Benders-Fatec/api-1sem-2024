@@ -11,16 +11,6 @@ import io.github.amithkoujalgi.ollama4j.core.models.Model;
 
 public class ListModels {
 
-    // public static void main(String[] args) {
-        
-    //     AppConfig appConfig = new AppConfig();;
-    //     List<String> listinha = getList(appConfig);
-    //     for(String modelo : listinha) {
-    //         System.out.println(modelo);
-    //     }
-
-    // }
-
     public static List<String> getList(Component parentComponent, AppConfig appConfig) {
         
         String host = appConfig.getOllamaUrl();
@@ -30,7 +20,7 @@ public class ListModels {
             List<Model> models = ollamaAPI.listModels();
             models.forEach(model -> lista.add(removerVersionTag(model.getName())));
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Verifique a conexão com o servidor Ollama.", "Erro: Ollama Server", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(parentComponent, "Verifique a conexão com o servidor Ollama.", "Erro: Ollama Server", JOptionPane.ERROR_MESSAGE);
 
         }
         return lista;

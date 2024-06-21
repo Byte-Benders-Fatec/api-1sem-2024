@@ -487,7 +487,7 @@ public class GUIAppConfig extends javax.swing.JFrame {
                 
                 File file = fc.getSelectedFile();
                 
-                appConfig.loadConfig(file.getCanonicalPath());
+                appConfig.loadConfig(this, file.getCanonicalPath());
                 jTxtConfigDB.setText(appConfig.getConfigFilePath());
                 jTxtType.setText(appConfig.getDatabaseType());
                 jTxtHost.setText(appConfig.getDatabaseHost());
@@ -567,7 +567,7 @@ public class GUIAppConfig extends javax.swing.JFrame {
         }
 
         if(vazios > 0){
-            JOptionPane.showMessageDialog(null, "Fill in all the fields!");
+            JOptionPane.showMessageDialog(this, "Fill in all the fields!");
             return false;
         }
         else{
@@ -591,12 +591,12 @@ public class GUIAppConfig extends javax.swing.JFrame {
                 appConfig.setOllamaHost(jTxtHostLLM.getText());
                 appConfig.setOllamaPort(jTxtPortLLM.getText());          
                 if(successNotice){
-                    JOptionPane.showMessageDialog(null, "Update completed successfully!");
+                    JOptionPane.showMessageDialog(this, "Update completed successfully!");
                 }
                 return true;
             }
             else{
-                JOptionPane.showMessageDialog(null, "Warning: different passwords!");
+                JOptionPane.showMessageDialog(this, "Warning: different passwords!");
                 return false;
             }
         }
@@ -617,7 +617,7 @@ public class GUIAppConfig extends javax.swing.JFrame {
 
                     File file = fc.getSelectedFile();
                     appConfig.setNewConfig(file.getCanonicalPath());
-                    JOptionPane.showMessageDialog(null, "Save successfully!");
+                    JOptionPane.showMessageDialog(this, "Save successfully!");
                 }
             }
             catch(Exception e){
@@ -669,17 +669,7 @@ public class GUIAppConfig extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                GUIAppConfig newGuiConfig = new GUIAppConfig();                
-                
-                newGuiConfig.addWindowListener(new WindowAdapter() {
-                    @Override
-                    public void windowClosing(WindowEvent e) {
-                        //gui.configButtonEnable();
-                        System.out.println("Joniel");
-                        newGuiConfig.dispose();
-                    }
-                });
-                
+                GUIAppConfig newGuiConfig = new GUIAppConfig();                                
                 newGuiConfig.setVisible(true);
             }
         });        
